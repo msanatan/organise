@@ -1,7 +1,11 @@
 {% extends "base.html" %}
 {% block body %}
     
-    <h1>Todos</h1>
+    <h1>Todos
+        <span class="btn-group pull-right" style="display: inline-block">
+            <a href="#" class="btn btn-primary btn-lg pull-right" data-toggle="modal" data-target="#addTodoModal">Add Todo</a>
+        </span>
+    </h1>
     {% for message in get_flashed_messages() %}
         <div class="flash">{{ message }}</div>
     {% endfor %}
@@ -16,4 +20,37 @@
             <em>Damn, nothing to do!</em>
         {% endfor %}
     </ul>
+
+    <div class="modal" id="addTodoModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+                    <h4 class="modal-title">Add Todo</h4>
+                </div>
+            <div class="modal-body">
+                <form class="form-horizontal" action="{{ url_for('todos.add_todo') }}" method="post">
+                    <div class="form-group">
+                        <label for="title" class="col-lg-2 control-label">Title</label>
+                        <div class="col-lg-10">
+                          <input type="text" class="form-control" id="title" name="title" placeholder="Title">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="description" class="col-lg-2 control-label">Description</label>
+                        <div class="col-lg-10">
+                          <textarea class="form-control" rows="3" id="description" name="description"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
+            </div>
+            
+          </div>
+        </div>
+  </div>
 {% endblock %}
