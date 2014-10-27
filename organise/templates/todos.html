@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block body %}
+    
+    <h1>Todos</h1>
+    {% for message in get_flashed_messages() %}
+        <div class="flash">{{ message }}</div>
+    {% endfor %}
+    
+    <ul class="entries">
+        {% for todo in todos %}
+            <li>
+                <h2>{{ todo.title }}</h2>
+                <p>{{ todo.description|safe }}</p>
+            </li>
+        {% else %}
+            <em>Damn, nothing to do!</em>
+        {% endfor %}
+    </ul>
+{% endblock %}
