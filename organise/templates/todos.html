@@ -11,7 +11,7 @@
     {% endfor %}
     
     <ul class="entries">
-        {% for todo in todos %}
+        {% for todo in all_todos %}
             <li>
                 <h2>{{ todo.title }}</h2>
                 <p>{{ todo.description|safe }}</p>

@@ -8,7 +8,7 @@ todos = Blueprint('todos', __name__, template_folder='/../templates')
 @todos.route('/')
 def index():
     all_todos = Todo.query.all()
-    return render_template('todos.html', todos=all_todos)
+    return render_template('todos.html', all_todos=all_todos)
 
 
 @todos.route('/add', methods=['POST'])
