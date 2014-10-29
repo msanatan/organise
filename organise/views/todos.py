@@ -20,16 +20,16 @@ def add_todo():
     return redirect(url_for('todos.index'))
 
 
-@todos.route('/<int:t_id>')
+@todos.route('/todo/<int:t_id>')
 def show_todo(t_id):
     pass
 
 
-@todos.route('/<int:t_id>/edit')
+@todos.route('/todo/<int:t_id>/edit')
 def edit_todo(t_id):
     pass
 
 
-@todos.route('/<int:t_id>/delete', methods=['POST'])
+@todos.route('/todo/<int:t_id>/delete', methods=['POST'])
 def delete_todo(t_id):
     pass
