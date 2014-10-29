@@ -22,7 +22,8 @@ def add_todo():
 
 @todos.route('/todo/<int:t_id>')
 def show_todo(t_id):
-    pass
+    todo = Todo.query.filter_by(id=t_id).first()
+    return render_template('todo.html', todo=todo)
 
 
 @todos.route('/todo/<int:t_id>/edit')

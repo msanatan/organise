@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block body %}
+
+    <div class="form-group">
+        <input class="form-control input-lg" type="text" id="inputLarge" value="{{todo.title}}">
+    </div>
+    
+    <div class="form-group">
+        <textarea class="form-control" rows="20" id="description" name="description">{{todo.description}}</textarea>
+    </div>
+
+{% endblock %}
