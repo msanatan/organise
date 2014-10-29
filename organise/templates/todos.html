@@ -10,16 +10,18 @@
         <div class="flash">{{ message }}</div>
     {% endfor %}
     
-    <ul class="entries">
+    <div class="entries">
         {% for todo in all_todos %}
-            <li>
+            <a href="{{ url_for('todos.show_todo', t_id=todo.id) }}">
+            <section class="card">
                 <h2>{{ todo.title }}</h2>
                 <p>{{ todo.description|safe }}</p>
-            </li>
+            </section>
+            </a>
         {% else %}
             <em>Damn, nothing to do!</em>
         {% endfor %}
-    </ul>
+    </div>
 
     <div class="modal" id="addTodoModal">
         <div class="modal-dialog">
