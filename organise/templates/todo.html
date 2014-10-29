@@ -1,12 +1,17 @@
 {% extends "base.html" %}
 {% block body %}
-
-    <div class="form-group">
-        <input class="form-control input-lg" type="text" id="inputLarge" value="{{todo.title}}">
-    </div>
     
-    <div class="form-group">
-        <textarea class="form-control" rows="20" id="description" name="description">{{todo.description}}</textarea>
-    </div>
+    <form class="form-horizontal" action="{{ url_for('todos.edit_todo', t_id=todo.id) }}" method="post">
+        <div class="form-group">
+            <input class="form-control input-lg" type="text" name="title" value="{{todo.title}}">
+        </div>
+        
+        <div class="form-group">
+            <textarea class="form-control" rows="20" name="description">{{todo.description}}</textarea>
+        </div>
+        
+        <button type="button" class="btn btn-danger">Delete</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
+    </form>
 
 {% endblock %}
