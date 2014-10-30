@@ -35,7 +35,7 @@ def edit_todo(t_id):
     todo.description = changed_description
     db.session.commit()
     flash('All changes were saved')
-    return redirect(url_for('todos.show_todo', t_id=t_id))
+    return redirect(url_for('todos.index'))
 
 
 @todos.route('/todo/<int:t_id>/delete', methods=['POST'])
