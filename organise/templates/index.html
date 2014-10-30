@@ -1,4 +1,18 @@
 {% extends "base.html" %}
 {% block body %}
+    <div class="site-wrapper">
+        <div class="site-wrapper-inner">
+            <div class="cover-container">
+                <div class="inner cover">
+                    <h1 class="cover-heading">Organise it all</h1>
+                    <p class="lead">Organise is yet another todo list built with the lovely Flask. What other app could have possibly been built instead?</p>
+                    <p class="lead"> We &hearts; CRUD </p>
+                        <p class="lead">
+                          <a href="{{ url_for('todos.index') }}" class="btn btn-lg btn-default">Organise Now</a>
+                        </p>
+                </div>
+            </div>
+        </div>
+    </div>
 
 {% endblock %}
