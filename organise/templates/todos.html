@@ -6,9 +6,6 @@
             <a href="#" class="btn btn-primary btn-lg pull-right" data-toggle="modal" data-target="#addTodoModal">Add Todo</a>
         </span>
     </h1>
-    {% for message in get_flashed_messages() %}
-        <div class="flash">{{ message }}</div>
-    {% endfor %}
     
     <div class="entries">
         {% for todo in all_todos %}
