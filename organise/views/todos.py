@@ -1,7 +1,6 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, request, redirect, url_for, flash
 from organise.models import Todo
 from organise import db
-from flask import render_template, request, redirect, url_for, flash
 
 todos = Blueprint('todos', __name__, template_folder='/../templates')
 
