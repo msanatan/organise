@@ -21,7 +21,7 @@ def add_todo():
 
 @todos.route('/todo/<int:t_id>')
 def show_todo(t_id):
-    todo = Todo.query.filter_by(id=t_id).first()
+    todo = Todo.query.filter_by(id=t_id).first_or_404()
     return render_template('todo.html', todo=todo)
 
 
@@ -29,7 +29,7 @@ def show_todo(t_id):
 def edit_todo(t_id):
     changed_title = request.form['title']
     changed_description = request.form['description']
-    todo = Todo.query.filter_by(id=t_id).first()
+    todo = Todo.query.filter_by(id=t_id).first_or_404()
     todo.title = changed_title
     todo.description = changed_description
     db.session.commit()
@@ -39,7 +39,7 @@ def edit_todo(t_id):
 
 @todos.route('/todo/<int:t_id>/delete', methods=['POST'])
 def delete_todo(t_id):
-    todo = Todo.query.filter_by(id=t_id).first()
+    todo = Todo.query.filter_by(id=t_id).first_or_404()
     db.session.delete(todo)
     db.session.commit()
     flash('Todo successfully deleted')
